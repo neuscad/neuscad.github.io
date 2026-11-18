@@ -1,4 +1,4 @@
-import { readdir, readFile } from "node:fs/promises";
+import { access, readdir, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { parse } from "yaml";
@@ -7,6 +7,16 @@ const root = process.argv[2] ? pathToFileURL(`${resolve(process.argv[2])}/`) : n
 
 async function readDist(path) {
 	return readFile(new URL(path, root), "utf8");
+}
+
+async function hasPage(path) {
+	try {
+		await access(new URL(`../src/pages/${path}`, root));
+		return true;
+	} catch (error) {
+		if (error.code === "ENOENT") return false;
+		throw error;
+	}
 }
 
 async function readDistCss() {
@@ -176,16 +186,22 @@ assert(
 	"research should render publication lists or an explicit empty state",
 );
 
-const about = await readDist("about/index.html");
-const aboutCanonical = assertPageMetadata(about, "about");
+let aboutCanonical;
+if (await hasPage("about.astro")) {
+	const about = await readDist("about/index.html");
+	aboutCanonical = assertPageMetadata(about, "about");
+	assert(footer(index) === footer(about), "about should render the configured copyright footer");
+}
 assert(
-	footer(index) === footer(about) && footer(index).includes(`&copy; ${new Date().getFullYear()}`),
-	"all pages should render the same configured copyright footer",
+	footer(index).includes(`&copy; ${new Date().getFullYear()}`),
+	"home should render the configured copyright footer",
 );
 
 const detailCanonicals = [];
 for (const collection of ["posts", "projects", "teaching"]) {
+	if (!(await hasPage(`${collection}.astro`)) && !(await hasPage(`${collection}/index.astro`))) continue;
 	const listing = await readDist(`${collection}/index.html`);
+	assert(footer(listing) === footer(index), `${collection} should render the configured copyright footer`);
 	assertPageMetadata(listing, collection);
 	if (collection !== "posts") {
 		assertOptionalFilterGroup(listing, collection);

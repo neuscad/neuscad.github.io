@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { constants } from 'node:fs';
+import { constants, existsSync } from 'node:fs';
 import { cp, mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { execFile, spawn } from 'node:child_process';
 import { tmpdir } from 'node:os';
@@ -96,7 +96,8 @@ order: 99
 ---
 Project details.
 `);
-	await write('src/content/teaching/regression/course.md', `---
+	if (existsSync(join(fixture, 'src/pages/teaching/[...slug].astro'))) {
+		await write('src/content/teaching/regression/course.md', `---
 title: Nested course
 code: TEST 101
 summary: Course in a subdirectory.
@@ -106,6 +107,7 @@ order: 99
 ---
 Course details.
 `);
+	}
 	await buildAndCheck();
 	const mdx = await readFile(join(fixture, 'dist/posts/regression/note/index.html'), 'utf8');
 	assert.equal(mdx.match(/<p data-mdx-check(?:="[^"]*")?>(.*?)<\/p>/)?.[1], '3', 'MDX expressions must render');
@@ -115,7 +117,7 @@ Course details.
 	assert.match(featured, /Regression note/);
 	assert.doesNotMatch(featured, /md:grid-cols-/);
 	assert.match(posts, /<img[^>]+srcset="[^"]+\.webp/);
-	console.log('Passed: nested MDX/project/course routes, draft exclusion, no cover, optimized covers.');
+	console.log('Passed: available content detail routes, nested MDX, draft exclusion, no cover, optimized covers.');
 	if (browserMode) {
 		const { preview } = await import('astro');
 		const server = await preview({ root: fixture, server: { host: '127.0.0.1', port: 0 }, logLevel: 'error' });

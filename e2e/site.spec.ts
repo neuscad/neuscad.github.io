@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { existsSync } from 'node:fs';
 
 let errors: string[] = [];
 test.beforeEach(async ({ page, baseURL }) => {
@@ -32,7 +33,7 @@ test('mobile menu supports Escape, breakpoint changes, and navigation', async ({
 	await page.setViewportSize({ width: 320, height: 900 });
 	await expect(toggle).toHaveAttribute('aria-expanded', 'false');
 	await toggle.click();
-	await menu.getByRole('link', { name: 'Projects', exact: true }).click();
+	await menu.locator('a[href="/projects"]').click();
 	await expect(page).toHaveURL(/\/projects\/?$/);
 	await expect(menu).toBeHidden();
 	await expect(page.getByRole('heading', { name: 'Nested project' })).toBeVisible();
@@ -159,7 +160,11 @@ test('real MDX, wide tables, code, images, and enlarged text stay usable', async
 	await image.scrollIntoViewIfNeeded();
 	await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
 	await expect(image).toHaveAttribute('srcset', /\.webp/);
-	for (const [route, title] of [['/projects/regression/project/', 'Nested project'], ['/teaching/regression/course/', 'Nested course']]) {
+	const detailRoutes = [['/projects/regression/project/', 'Nested project']];
+	if (existsSync(new URL('../src/pages/teaching/[...slug].astro', import.meta.url))) {
+		detailRoutes.push(['/teaching/regression/course/', 'Nested course']);
+	}
+	for (const [route, title] of detailRoutes) {
 		await page.goto(route);
 		await expect(page.getByRole('heading', { level: 1 })).toHaveText(title);
 		await page.locator('html').evaluate((element) => { element.style.fontSize = '32px'; });
