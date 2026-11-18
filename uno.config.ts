@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import {
 	defineConfig,
 	presetIcons,
@@ -7,6 +8,8 @@ import {
 	transformerDirectives,
 } from 'unocss';
 import siteConfig from './src/side.config';
+
+const require = createRequire(import.meta.url);
 
 // Dynamic icon names from editable data need to be available to UnoCSS at build time.
 const aboutIcons =
@@ -95,7 +98,11 @@ export default defineConfig({
 		presetIcons({
 			scale: 1.1,
 			warn: true,
-			cdn: 'https://esm.sh/',
+			collections: {
+				academicons: () => require('@iconify-json/academicons/icons.json'),
+				mdi: () => require('@iconify-json/mdi/icons.json'),
+				ph: () => require('@iconify-json/ph/icons.json'),
+			},
 			extraProperties: {
 				display: 'inline-block',
 				'vertical-align': 'middle',
