@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">Neuro-symbolic intelligence</title>
+  <desc id="description">An abstract human head in profile. The left half of the brain contains a connected neural network in teal; the right half contains mathematical equations and logical symbols in violet. A luminous central bridge connects learning and reasoning.</desc>
+  <defs>
+    <linearGradient id="head-fill" x1="190" y1="170" x2="620" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102B3C"/>
+      <stop offset="1" stop-color="#171C38"/>
+    </linearGradient>
+    <linearGradient id="outline" x1="190" y1="280" x2="620" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#45D6CB"/>
+      <stop offset="1" stop-color="#B19AFF"/>
+    </linearGradient>
+    <linearGradient id="brain-fill" x1="210" y1="290" x2="570" y2="290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#45D6CB" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#B19AFF" stop-opacity=".13"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#65BABE" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#65BABE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Transparent canvas; the artwork works on light and dark surfaces. -->
+  <circle cx="400" cy="370" r="350" fill="url(#halo)"/>
+  <g stroke="url(#outline)" stroke-opacity=".18" stroke-width="1.5">
+    <path d="M146 384a252 252 0 0 1 461-140" stroke-dasharray="3 11"/>
+    <path d="M158 465a269 269 0 0 0 56 85M592 166l15 24m-2-35 15 24"/>
+    <circle cx="164" cy="277" r="5"/>
+    <circle cx="602" cy="511" r="5"/>
+  </g>
+
+  <!-- Continuous forehead, nose, lips, chin, neck, and back of the skull. -->
+  <path d="M269 673v-99c0-34-12-57-38-86-40-44-59-94-59-153 0-113 85-198 200-198 105 0 184 67 195 162l6 48 49 67c8 11 3 22-11 25l-33 7-1 36c14 9 14 19-1 27 12 9 10 19-3 26l-4 31c-3 29-19 44-48 44h-53v63h35c29 0 52 10 71 27H229c11-13 24-22 40-27Z" fill="url(#head-fill)" stroke="url(#outline)" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M468 610h-31c-28 0-50-9-68-25" stroke="#B19AFF" stroke-opacity=".3" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- A shared brain boundary with two complementary representations. -->
+  <path d="M389 202c-23-25-63-24-85-5-29-10-61 7-68 34-29 7-43 33-35 59-22 22-19 54 3 72-4 30 18 55 46 56 16 27 50 35 76 19 25 12 52 2 63-18 12 20 39 30 64 18 26 16 60 8 76-19 28-1 50-26 46-56 22-18 25-50 3-72 8-26-6-52-35-59-7-27-39-44-68-34-22-19-63-20-86 5Z" fill="url(#brain-fill)" stroke="url(#outline)" stroke-opacity=".65" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Neural half: three small, fully connected layers. -->
+  <g stroke="#59DCD0" stroke-width="1.8" stroke-opacity=".42">
+    <path d="m235 272 63-38m-63 38 63 29m-63-29 63 97m-63-37 63-98m-63 98 63-31m-63 31 63 37m-63 23 63-158m-63 158 63-91m-63 91 63-23"/>
+    <path d="m298 234 59 38m-59-38 59 60m-59-60 59 158m-59-91 59-29m-59 29 59 31m-59-31 59 91m-59-23 59-97m-59 97 59-37m-59 37 59 23"/>
+  </g>
+  <g fill="#153C46" stroke="#6AE8D9" stroke-width="3">
+    <circle cx="235" cy="272" r="8"/>
+    <circle cx="235" cy="332" r="8"/>
+    <circle cx="235" cy="392" r="8"/>
+    <circle cx="298" cy="234" r="8"/>
+    <circle cx="298" cy="301" r="9"/>
+    <circle cx="298" cy="369" r="8"/>
+    <circle cx="357" cy="272" r="8"/>
+    <circle cx="357" cy="332" r="8"/>
+    <circle cx="357" cy="392" r="8"/>
+  </g>
+  <g fill="#B6FFF1">
+    <circle cx="298" cy="301" r="3"/>
+    <circle cx="235" cy="272" r="2.5"/>
+    <circle cx="357" cy="392" r="2.5"/>
+  </g>
+
+  <!-- Symbolic half: mathematics, quantification, and logical entailment. -->
+  <g fill="#D5C8FF" font-family="'Cambria Math', 'STIX Two Math', 'DejaVu Serif', serif" text-anchor="middle">
+    <text x="466" y="246" font-size="27" font-style="italic">∀x ∈ ℝ</text>
+    <text x="474" y="293" font-size="25">f(x) = y</text>
+    <text x="476" y="343" font-size="27">p ∧ q ⇒ r</text>
+    <text x="474" y="393" font-size="28">Γ ⊢ φ</text>
+  </g>
+  <path d="M428 310h94M438 407h72" stroke="#B19AFF" stroke-opacity=".25" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- The bridge joins the two halves into one reasoning system. -->
+  <path d="M389 215v67m0 100v29" stroke="url(#outline)" stroke-opacity=".45" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7"/>
+  <path d="M367 332h43m-7-6 7 6-7 6m-29-12-7 6 7 6" stroke="#D6F6F4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- A quiet continuation of the signal through the head. -->
+  <path d="M389 457v38c0 14-11 25-25 25h-41c-14 0-25 11-25 25v73" stroke="url(#outline)" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="389" cy="457" r="4" fill="#91E5E0"/>
+  <circle cx="298" cy="618" r="4" fill="#64DCD1"/>
+</svg>

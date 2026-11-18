@@ -33,10 +33,10 @@
     "url": "https://github.com/jxpeng98/astro-theme-scholars.git"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.10",
-    "@astrojs/mdx": "8.0.0",
-    "@astrojs/sitemap": "^3.7.4",
-    "astro": "7.3.1",
+    "@astrojs/check": "0.9.12",
+    "@astrojs/mdx": "8.1.6",
+    "@astrojs/sitemap": "^3.7.5",
+    "astro": "7.4.12",
     "astro-seo": "^1.2.0",
     "sharp": "0.35.4",
     "typescript": "^6.0.3",

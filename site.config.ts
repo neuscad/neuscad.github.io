@@ -9,27 +9,26 @@ import { defineSiteConfig } from "./src/config/site";
 
 export const siteConfig = defineSiteConfig({
 	// Required: the four values most sites should personalize first.
-	author: "Mira Latticewell",
-	siteUrl: "https://astro-theme-scholars.pages.dev",
+	author: "Neuro-Symbolic Compliance Assistant for Design Reviews",
+	siteUrl: "https://neuscad.github.io",
 	hero: {
 		headline:
-			"Fictional research on learning systems, shared archives, and humane web infrastructure.",
+			"Compliance Verification of Early Design with LLM Power and Symbolic Verification Soundness.",
 		subheadline:
-			"Mira Latticewell is an entirely fictional scholar created to demonstrate this academic portfolio theme.",
-		profileImage: "/profile.svg",
+			"NeuSCAD is an verification environment capable of extracting certification information from early design documents and verify this information against formal compliance verification plans.",
+		profileImage: "/neuro-symbolic-head.svg",
 		profileAlt: "Abstract illustration representing the fictional researcher Mira Latticewell",
-		statusBadge: "Fictional demo profile",
+		statusBadge: "NeuSCAD",
 	},
 
 	// Common profile and discovery settings.
 	description:
-		"An entirely fictional academic profile demonstrating the Scholar Pages Astro theme.",
+		"Combining Scalability of GenAI with soundness of formal verification.",
 	keywords: [
-		"synthetic learning environments",
-		"fictional archives",
-		"humane web infrastructure",
-		"academic website",
-		"demo profile",
+		"Method of Compliance Contracts",
+		"Compliance Constraint Satisfaction",
+		"SMT",
+		"LLM",
 	],
 	// Optional social-preview overrides:
 	// language: "en",
@@ -40,32 +39,22 @@ export const siteConfig = defineSiteConfig({
 	// ogImageHeight: 630,
 	affiliations: [
 		{
-			role: "Fictional Associate Professor",
-			department: "School of Imaginary Systems",
-			institution: "Northstar Commons University (fictional)",
+			role: "Automating Early Design Compliance",
+			department: "LLM",
+			institution: "SMT Verification",
 		},
 	],
 	researchInterests: [
-		"Synthetic Learning Environments",
-		"Speculative Interfaces",
-		"Fictional Archives",
-		"Imaginary Civic Systems",
+		"Neuro-Symbolic Verification",
+		"LLM Assisted Software Development",
+		"Sound Gen AI",
+		"Fast, Scalable, Trustworthy Development",
 	],
 	socialLinks: [
 		{
-			label: "Sample repository",
-			href: "https://example.com/mira-latticewell/repository",
+			label: "Repository (TBD)",
+			href: "",
 			icon: "i-mdi:github",
-		},
-		{
-			label: "Sample notes",
-			href: "https://example.com/mira-latticewell/notes",
-			icon: "i-mdi:bookshelf",
-		},
-		{
-			label: "Sample archive",
-			href: "https://example.com/mira-latticewell/archive",
-			icon: "i-mdi:tag-outline",
 		},
 	],
 
@@ -77,41 +66,41 @@ export const siteConfig = defineSiteConfig({
 
 	// Optional: omit any entry to use the concise academic default copy.
 	pageTitles: {
-		about: {
-			description:
-				"A fictional academic background created solely to demonstrate profile, experience, service, and award layouts.",
-		},
 		researches: {
+			title: "Publications",
 			description:
-				"Fictional publications attributed to Mira Latticewell for demonstrating scholarly records and citation tools.",
+				"Publications.",
 		},
 		projects: {
+			title: "Demos",
 			description:
-				"Fictional research tools and imaginary infrastructure projects created for this theme demo.",
-		},
-		teaching: {
-			description:
-				"Fictional courses showing how teaching records, terms, and materials appear in the theme.",
+				"Project Demos.",
 		},
 		posts: {
 			description:
-				"Fictional notes from the Mira Latticewell demo profile.",
+				"Fictional note.",
 		},
 	},
+
+	navLinks: [
+		{ href: "/researches", label: "Publications" },
+		{ href: "/projects", label: "Demos" },
+		{ href: "/posts", label: "Blog" },
+	],
 
 	// Homepage composition: switch off any block you do not want to display.
 	homeBlocks: {
 		hero: { enabled: true },
 		showcase: {
 			enabled: true,
-			title: "Fictional Initiatives",
-			description: "Imaginary systems and prototype research infrastructure",
+			title: "Demos (TBD)",
+			description: "Demos (TBD)",
 		},
 		publications: {
 			enabled: true,
-			description: "Selected fictional publications",
+			description: "Publications (TBD)",
 		},
-		posts: { enabled: true, description: "Notes from a fictional practice" },
+		posts: { enabled: true, description: "Publications" },
 	},
 });
 
