@@ -9,7 +9,7 @@ import { defineSiteConfig } from "./src/config/site";
 
 export const siteConfig = defineSiteConfig({
 	// Required: the four values most sites should personalize first.
-	author: "Neuro-Symbolic Compliance Assistant for Design Reviews",
+	author: "Neuro-Symbolic Compliance Assistant for Design Reviews.",
 	siteUrl: "https://neuscad.github.io",
 	hero: {
 		headline:
